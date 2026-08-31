@@ -72,7 +72,7 @@ const TickerTape = ({ textItems, bgColor, textColor, rotateAngle, zIndex, revers
                 color:"white"
               }}
             >
-            <img src={Star}/>
+            <img src={Star} alt="logo"/>
             </Box>
           </React.Fragment>
         ))}

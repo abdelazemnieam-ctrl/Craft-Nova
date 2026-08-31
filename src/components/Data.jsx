@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
-import Content from "./Content"
-import Footer2 from "./Footer2"
+import Content from "./Content";
+import Footer2 from "./Footer2";
 import {
   Box,
   Container,
@@ -19,7 +19,6 @@ import Contant2 from "../Image/Contant2.svg";
 import Phone from "../Image/Phone.svg";
 
 // إنشاء عناصر MUI مدعومة بحركات Framer Motion
-const MotionBox = motion(Box);
 const MotionTypography = motion(Typography);
 
 function ContactPage() {
@@ -60,7 +59,6 @@ function ContactPage() {
           backgroundColor: "#F0F0F0",
         }}
       >
-        {/* Main Heading with Cal Sans Font & Scroll Animation */}
         <MotionTypography
           variant="h1"
           initial="hidden"
@@ -88,7 +86,6 @@ function ContactPage() {
         >
           Let’s Built
 
-          {/* PLACEHOLDER 1 */}
           <Avatar
             src={Contant2}
             sx={{
@@ -119,7 +116,6 @@ function ContactPage() {
             Together
           </span>
 
-          {/* PLACEHOLDER 2 */}
           <Avatar
             src={Contant1}
             sx={{
@@ -134,7 +130,6 @@ function ContactPage() {
           Contact
         </MotionTypography>
 
-        {/* Subtitle Description with Delayed Scroll Animation */}
         <MotionTypography
           variant="body1"
           initial="hidden"
@@ -178,9 +173,6 @@ function ContactPage() {
   // CONTACT SECTION
   // =====================================================
 
-  // =========================
-  // Scroll Animation
-  // =========================
   const contactRef = useRef(null);
 
   const [isVisible, setIsVisible] = useState(false);
@@ -193,7 +185,6 @@ function ContactPage() {
         if (entry.isIntersecting) {
           setIsVisible(true);
 
-          // لو عاوز الأنيميشن يحصل مرة واحدة فقط
           observer.unobserve(entry.target);
         }
       },
@@ -214,6 +205,7 @@ function ContactPage() {
   // =========================
   // Form State
   // =========================
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -224,11 +216,13 @@ function ContactPage() {
   // =========================
   // Error State
   // =========================
+
   const [errors, setErrors] = useState({});
 
   // =========================
   // Handle Input Change
   // =========================
+
   const handleChange = (e) => {
     const { name, value } = e.target;
 
@@ -237,7 +231,6 @@ function ContactPage() {
       [name]: value,
     }));
 
-    // إزالة الخطأ بمجرد الكتابة
     setErrors((prev) => ({
       ...prev,
       [name]: "",
@@ -247,15 +240,14 @@ function ContactPage() {
   // =========================
   // Validation
   // =========================
+
   const validateForm = () => {
     const newErrors = {};
 
-    // Name
     if (!formData.name.trim()) {
       newErrors.name = "Please enter your name";
     }
 
-    // Email
     if (!formData.email.trim()) {
       newErrors.email = "Please enter your email";
     } else if (
@@ -264,12 +256,10 @@ function ContactPage() {
       newErrors.email = "Please enter a valid email";
     }
 
-    // Service
     if (!formData.service) {
       newErrors.service = "Please select a service";
     }
 
-    // Description
     if (!formData.description.trim()) {
       newErrors.description =
         "Please enter your project description";
@@ -283,20 +273,18 @@ function ContactPage() {
   // =========================
   // Submit
   // =========================
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // منع الإرسال لو البيانات ناقصة
     if (!validateForm()) {
       return;
     }
 
-    // البيانات بعد التأكد من صحتها
     console.log("Form Data:", formData);
 
     alert("Your message has been sent successfully!");
 
-    // تفريغ الفورم
     setFormData({
       name: "",
       email: "",
@@ -309,15 +297,7 @@ function ContactPage() {
 
   return (
     <>
-      {/* =====================================================
-          HERO
-      ===================================================== */}
-
       <HeroSection />
-
-      {/* =====================================================
-          CONTACT
-      ===================================================== */}
 
       <Box
         ref={contactRef}
@@ -326,9 +306,6 @@ function ContactPage() {
           backgroundColor: "#DCDCDC",
           py: { xs: 6, md: 10 },
 
-          // =========================
-          // Scroll Animation
-          // =========================
           opacity: isVisible ? 1 : 0,
 
           transform: isVisible
@@ -349,9 +326,6 @@ function ContactPage() {
             px: { xs: 2, md: 4 },
           }}
         >
-          {/* =========================
-              Section Title
-          ========================= */}
           <Box sx={{ mb: 5 }}>
             <Typography
               sx={{
@@ -382,9 +356,6 @@ function ContactPage() {
             </Typography>
           </Box>
 
-          {/* =========================
-              Main Contact Container
-          ========================= */}
           <Box
             sx={{
               display: "grid",
@@ -404,9 +375,6 @@ function ContactPage() {
               borderRadius: "0 0 8px 8px",
             }}
           >
-            {/* =========================
-                LEFT - FORM
-            ========================= */}
             <Paper
               component="form"
               onSubmit={handleSubmit}
@@ -433,9 +401,6 @@ function ContactPage() {
                 borderRadius: 0,
               }}
             >
-              {/* =========================
-                  Name
-              ========================= */}
               <Box sx={{ mb: 3 }}>
                 <Typography
                   sx={{
@@ -477,9 +442,6 @@ function ContactPage() {
                 />
               </Box>
 
-              {/* =========================
-                  Email
-              ========================= */}
               <Box sx={{ mb: 3 }}>
                 <Typography
                   sx={{
@@ -522,9 +484,6 @@ function ContactPage() {
                 />
               </Box>
 
-              {/* =========================
-                  Service
-              ========================= */}
               <Box sx={{ mb: 3 }}>
                 <Typography
                   sx={{
@@ -589,9 +548,6 @@ function ContactPage() {
                 </TextField>
               </Box>
 
-              {/* =========================
-                  Project Description
-              ========================= */}
               <Box sx={{ mb: 3 }}>
                 <Typography
                   sx={{
@@ -635,9 +591,6 @@ function ContactPage() {
                 />
               </Box>
 
-              {/* =========================
-                  SEND NOW BUTTON
-              ========================= */}
               <Box
                 sx={{
                   marginTop: "auto",
@@ -704,9 +657,6 @@ function ContactPage() {
               </Box>
             </Paper>
 
-            {/* =========================
-                CENTER EMPTY SPACE
-            ========================= */}
             <Box
               sx={{
                 backgroundColor: "#DCDCDC",
@@ -718,9 +668,6 @@ function ContactPage() {
               }}
             />
 
-            {/* =========================
-                RIGHT - IMAGE
-            ========================= */}
             <Box
               sx={{
                 minHeight: {
@@ -750,8 +697,9 @@ function ContactPage() {
           </Box>
         </Container>
       </Box>
-      <Content/>
-      <Footer2/>
+
+      <Content />
+      <Footer2 />
     </>
   );
 }

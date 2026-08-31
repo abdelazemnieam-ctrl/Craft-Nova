@@ -539,7 +539,7 @@ function Footer() {
             color: "#fff",
 
             whiteSpace: "nowrap",
-            letterSpacing: "2px",
+           
 
             userSelect: "none",
 

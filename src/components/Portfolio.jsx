@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Typography, Button, Stack, Box, Chip } from '@mui/material';
+import { Container, Typography, Stack, Box, Chip } from '@mui/material';
 import { motion } from 'framer-motion';
 import Hello from "../Image/Hello.svg";
 import Icon1 from "../Image/Icon1.svg";

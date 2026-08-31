@@ -61,7 +61,6 @@ const FAQItem = ({ question, answer, open, onClick }) => {
         },
       }}
     >
-      {/* السؤال */}
       <Box
         sx={{
           display: "flex",
@@ -101,7 +100,6 @@ const FAQItem = ({ question, answer, open, onClick }) => {
         </IconButton>
       </Box>
 
-      {/* الإجابة */}
       {open && (
         <Typography
           sx={{
@@ -128,6 +126,9 @@ const FAQSection = () => {
 
   // ظهور القسم مع الـ Scroll
   useEffect(() => {
+    // حفظ قيمة الـ ref الحالية حتى نستخدم نفس العنصر في cleanup
+    const section = sectionRef.current;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -139,13 +140,13 @@ const FAQSection = () => {
       }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+    if (section) {
+      observer.observe(section);
     }
 
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
+      if (section) {
+        observer.unobserve(section);
       }
     };
   }, []);
@@ -164,7 +165,6 @@ const FAQSection = () => {
         py: { xs: 7, md: 10 },
         overflow: "hidden",
 
-        // Animation القسم بالكامل
         opacity: isVisible ? 1 : 0,
         transform: isVisible
           ? "translateY(0)"
@@ -184,10 +184,6 @@ const FAQSection = () => {
           },
         }}
       >
-        {/* ========================= */}
-        {/* العنوان */}
-        {/* ========================= */}
-
         <Box
           sx={{
             textAlign: "center",
@@ -245,10 +241,6 @@ const FAQSection = () => {
           </Typography>
         </Box>
 
-        {/* ========================= */}
-        {/* الأسئلة */}
-        {/* ========================= */}
-
         <Box
           sx={{
             display: "grid",
@@ -263,10 +255,6 @@ const FAQSection = () => {
             alignItems: "start",
           }}
         >
-          {/* ========================= */}
-          {/* العمود الأول */}
-          {/* ========================= */}
-
           <Box>
             {faqsLeft.map((faq, index) => (
               <Box
@@ -293,10 +281,6 @@ const FAQSection = () => {
               </Box>
             ))}
           </Box>
-
-          {/* ========================= */}
-          {/* العمود الثاني */}
-          {/* ========================= */}
 
           <Box>
             {faqsRight.map((faq, index) => {

@@ -86,7 +86,7 @@ function Hero() {
               lineHeight:"90px",
               fontWeight: 700,
               color: "#161C2D",
-            }}>Premium <img src={Vector} style={{borderRadius:"50px",paddingLeft:"16px",paddingRight:"16px"}}/><span style={{color:"#FF4D00"}}>Software</span></Typography>
+            }}>Premium <img src={Vector} alt="logo" style={{borderRadius:"50px",paddingLeft:"16px",paddingRight:"16px"}}/><span style={{color:"#FF4D00"}}>Software</span></Typography>
 
             <Typography sx={{
               fontFamily: "Manrope",
@@ -94,7 +94,7 @@ function Hero() {
               lineHeight:"90px",
               fontWeight: 700,
               color: "#161C2D",
-            }}><span style={{color:"#5C5C5C"}}>For</span><img src={Loge2} style={{paddingLeft:"16px",paddingRight:"16px"}}/>Growing Startups</Typography>
+            }}><span style={{color:"#5C5C5C"}}>For</span><img src={Loge2} alt="logo" style={{paddingLeft:"16px",paddingRight:"16px"}}/>Growing Startups</Typography>
 
             <Typography sx={{
               fontFamily: "Manrope",
@@ -102,7 +102,7 @@ function Hero() {
               lineHeight:"90px",
               fontWeight: 700,
               color: "#161C2D",
-            }}><span style={{color:"#5C5C5C"}}>Based in</span> Egypt,<img src={Logo3} style={{paddingLeft:"16px",paddingRight:"16px"}}/>Worldwide</Typography>
+            }}><span style={{color:"#5C5C5C"}}>Based in</span> Egypt,<img src={Logo3} alt="logo" style={{paddingLeft:"16px",paddingRight:"16px"}}/>Worldwide</Typography>
           </Typography>
         </motion.div>
       </Typography>
@@ -157,7 +157,7 @@ function Hero() {
             flexShrink: "0" ,
           }}
         >
-          <img src={Banner} alt="image"/>
+          <img src={Banner} alt="logo" />
         </Box>
       </motion.div>
 
